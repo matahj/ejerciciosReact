@@ -1,0 +1,10 @@
+.promo{
+    display: flex;
+    flex-direction: row;
+
+    align-items: center;
+}
+
+.lista{
+    margin: 50px;
+}
