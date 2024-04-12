@@ -1,0 +1,19 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+h1{
+  background-color: rgb(100, 100, 212);
+} 
+
+.wrapper{
+  background-color: rgb(188, 188, 221);
+
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
