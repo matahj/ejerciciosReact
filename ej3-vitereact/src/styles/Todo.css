@@ -1,6 +1,6 @@
 
 .todo{
-    background-color: aqua;
+    background-color: rgb(190, 202, 202);
 
     display: flex;
     justify-content: center;
@@ -14,4 +14,8 @@
 
 .todo-terminado{
     opacity: 0.4;
+}
+
+.borrar{
+    background-color: #F08200;
 }

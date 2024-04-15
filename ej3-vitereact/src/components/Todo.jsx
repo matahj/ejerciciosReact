@@ -1,3 +1,5 @@
+import Checkmark from './Checkmark'
+
 import { Component } from 'react'
 import PropTypes from 'prop-types'
 
@@ -6,14 +8,22 @@ import '../styles/Todo.css'
 //const Todo = ()=>{
 class Todo extends Component {
 
-    state = {
-        terminado: false
+    constructor(props) {
+        super(props)
+        this.state = {
+            terminado: props.terminado
+        }
     }
 
-    render() {
-        return (
-            <div className={`todo ${this.state.terminado ? 'todo-terminado' : ''} `}>
+    // state = {
+    //     terminado: false
+    // }
 
+    elementoTodo = () => {
+
+        return (
+            <>
+                {this.state.terminado ? <Checkmark /> : ''}
                 <p className="todo-item">Tarea por hacer</p>
                 <button
                     className="borrar"
@@ -21,6 +31,15 @@ class Todo extends Component {
                 >
                     borrar
                 </button>
+            </>
+        )
+    }
+
+    render() {
+        return (
+            <div className={`todo ${this.state.terminado ? 'todo-terminado' : ''} `}>
+
+            {this.elementoTodo()}
 
             </div>
         )
