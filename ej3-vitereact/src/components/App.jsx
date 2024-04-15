@@ -11,8 +11,10 @@ const App = () => {
 
         {/* <h1>Hola React</h1>
         <h1>Hola React</h1> */}
-        
-        <Header />
+
+        <Header
+          pendientes={'2'}
+        />
         <Todolist />
 
       </div>

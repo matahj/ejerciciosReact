@@ -1,4 +1,17 @@
 
 .todo{
     background-color: aqua;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0;
+}
+
+.todo-item{
+    margin: 0px 20px;
+}
+
+.todo-terminado{
+    opacity: 0.4;
 }

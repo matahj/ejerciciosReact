@@ -9,10 +9,12 @@ const Todolist = ()=>{
         <div id="listaTareas">
             <h1>Lista de tareas</h1>
 
-            <Todo />
-            <Todo />
-            <Todo />
-            <Todo />
+            <Todo terminado = {true}/>
+            <Todo terminado = {false}/>
+            <Todo terminado = {true}/>
+            <Todo terminado = {true}/>
+            <Todo terminado = {true}/>
+            <Todo terminado = {false}/>
 
 
         </div>
