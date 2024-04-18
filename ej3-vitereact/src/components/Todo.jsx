@@ -23,8 +23,16 @@ class Todo extends Component {
 
         return (
             <>
-                {this.state.terminado ? <Checkmark /> : ''}
+                {/* {
+                    this.state.terminado
+                        ? <Checkmark />
+                        : <div style={{ height: '40px', width: '40px' }}></div>
+                } */}
+
+                <Checkmark terminado = {this.state.terminado}/>
+
                 <p className="todo-item">Tarea por hacer</p>
+                
                 <button
                     className="borrar"
                     onClick={() => this.setState({ terminado: true })}
@@ -39,7 +47,7 @@ class Todo extends Component {
         return (
             <div className={`todo ${this.state.terminado ? 'todo-terminado' : ''} `}>
 
-            {this.elementoTodo()}
+                {this.elementoTodo()}
 
             </div>
         )
