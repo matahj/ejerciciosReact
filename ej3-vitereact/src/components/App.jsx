@@ -12,17 +12,32 @@ class App extends Component {
     todos: []
   }
 
-  componentDidMount(){
+  componentDidMount() {
     this.setState(
       {
         todos: [
-          {terminado: false, titulo: 'tarea x'},
-          {terminado: false, titulo: 'tarea y'},
-          {terminado: true, titulo: 'tarea z'}
+          { terminado: false, titulo: 'tarea x' },
+          { terminado: false, titulo: 'tarea y' },
+          { terminado: true, titulo: 'tarea z' }
         ]
       }
     )
   }
+
+
+  handleClickDelete = (event, index) => {
+    const todos = [...this.state.todos]
+    todos.splice(index, 1)
+    this.setState({ todos })
+  }
+
+  handleClickToggleDone = (event, index) => {
+    const todos = [...this.state.todos]
+    todos[index].terminado = !todos[index].terminado
+    console.log(todos)
+    this.setState({ todos })
+  }
+
 
   render() {
 
@@ -36,7 +51,11 @@ class App extends Component {
           <Header
             pendientes={this.state.todos.length}
           />
-          <Todolist tareas = {this.state.todos}/>
+          <Todolist
+            tareas={this.state.todos}
+            toggleFn={this.handleClickToggleDone}
+            deleteFn={this.handleClickDelete}
+          />
 
         </div>
       </div>

@@ -29,13 +29,19 @@ class Todo extends Component {
                         : <div style={{ height: '40px', width: '40px' }}></div>
                 } */}
 
-                <Checkmark terminado = {this.props.terminado}/>
+                <Checkmark terminado={this.props.terminado} />
 
-                <p className="todo-item">{this.props.titulo}</p>
-                
+                <p
+                    className="todo-item"
+                    onClick={e => this.props.toggleFn(e)}
+                >
+                    {this.props.titulo}
+                </p>
+
                 <button
                     className="borrar"
-                    onClick={() => this.setState({ terminado: true })}
+                    //onClick={() => this.setState({ terminado: true })}
+                    onClick={e => this.props.deleteFn(e)}
                 >
                     borrar
                 </button>
@@ -45,7 +51,7 @@ class Todo extends Component {
 
     render() {
         return (
-            <div className={`todo ${this.state.terminado ? 'todo-terminado' : ''} `}>
+            <div className={`todo ${this.props.terminado ? 'todo-terminado' : ''} `}>
 
                 {this.elementoTodo()}
 
@@ -56,7 +62,9 @@ class Todo extends Component {
 
 Todo.propTypes = {
     terminado: PropTypes.bool.isRequired,
-    titulo: PropTypes.string.isRequired
+    titulo: PropTypes.string.isRequired,
+    deleteFn: PropTypes.func.isRequired,
+    toggleFn: PropTypes.func.isRequired
 }
 
 export default Todo
