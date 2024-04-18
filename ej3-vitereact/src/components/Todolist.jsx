@@ -1,24 +1,37 @@
+import PropTypes from 'prop-types'
+
 import Todo from './Todo.jsx'
 
 import '../styles/Todolist.css'
 
 
-const Todolist = ()=>{
+const Todolist = ({tareas})=>{
 
     return(
         <div id="listaTareas">
             <h1>Lista de tareas</h1>
 
-            <Todo terminado = {false}/>
-            <Todo terminado = {false}/>
-            <Todo terminado = {false}/>
-            <Todo terminado = {false}/>
-            <Todo terminado = {true}/>
-            <Todo terminado = {false}/>
+            {/* 
+            <Todo />
+            <Todo /> 
+            */}
 
+            {
+                tareas.map( (elem, index)=>
+                    <Todo
+                    key={index} 
+                    terminado={elem.terminado}
+                    titulo = {elem.titulo}
+                    />
+                )
+            }
 
         </div>
     )
+}
+
+Todolist.propTypes = {
+    tareas: PropTypes.array
 }
 
 export default Todolist;

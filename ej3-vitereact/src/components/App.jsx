@@ -1,26 +1,49 @@
+import { Component } from 'react'
+
 import Header from './Header'
 import Todolist from './Todolist'
 
 import '../styles/App.css'
 
-const App = () => {
+//const App = () => {
+class App extends Component {
 
-  return (
-    <div className="wrapper">
-      <div className="card-frame">
+  state = {
+    todos: []
+  }
 
-        {/* <h1>Hola React</h1>
-        <h1>Hola React</h1> */}
+  componentDidMount(){
+    this.setState(
+      {
+        todos: [
+          {terminado: false, titulo: 'tarea x'},
+          {terminado: false, titulo: 'tarea y'},
+          {terminado: true, titulo: 'tarea z'}
+        ]
+      }
+    )
+  }
 
-        <Header
-          pendientes={'2'}
-        />
-        <Todolist />
+  render() {
 
+    return (
+      <div className="wrapper">
+        <div className="card-frame">
+
+          {/* <h1>Hola React</h1>
+          <h1>Hola React</h1> */}
+
+          <Header
+            pendientes={this.state.todos.length}
+          />
+          <Todolist tareas = {this.state.todos}/>
+
+        </div>
       </div>
-    </div>
 
-  )
+    )
+  }
+
 }
 
 export default App

@@ -29,9 +29,9 @@ class Todo extends Component {
                         : <div style={{ height: '40px', width: '40px' }}></div>
                 } */}
 
-                <Checkmark terminado = {this.state.terminado}/>
+                <Checkmark terminado = {this.props.terminado}/>
 
-                <p className="todo-item">Tarea por hacer</p>
+                <p className="todo-item">{this.props.titulo}</p>
                 
                 <button
                     className="borrar"
@@ -55,7 +55,8 @@ class Todo extends Component {
 }
 
 Todo.propTypes = {
-    terminado: PropTypes.bool.isRequired
+    terminado: PropTypes.bool.isRequired,
+    titulo: PropTypes.string.isRequired
 }
 
 export default Todo
