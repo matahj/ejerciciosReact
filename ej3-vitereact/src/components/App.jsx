@@ -50,12 +50,10 @@ class App extends Component {
     }
 
     const listaTareas = [...this.state.todos]
-    listaTareas.concat([
-      { terminado: false, titulo: texto }
-    ])
-
     this.setState({
-      todos: listaTareas
+      todos: listaTareas.concat([
+        {titulo: texto, terminado:false}
+      ])
     })
 
   }
@@ -73,13 +71,14 @@ class App extends Component {
           <Header
             pendientes={this.state.todos.length}
           />
+
           <Todolist
             tareas={this.state.todos}
             toggleFn={this.handleClickToggleDone}
             deleteFn={this.handleClickDelete}
           />
 
-          <Form addTaskFn={this.handleAddTask}/>
+          <Form addTaskFn={this.handleAddTask} />
 
         </div>
       </div>

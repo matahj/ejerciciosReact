@@ -6,22 +6,29 @@ import '../styles/Form.css'
 
 const Form = ({ addTaskFn }) => {
 
-    const [value, setValue] = useState('')
+    const [value, setValue] = useState('');
 
     const handleChange = (event) => {
         setValue(event.target.value)
     }
 
+    const handleSubmit = (event) => {
+        event.preventDefault()
+        addTaskFn(value)
+        setValue('')
+    }
+
     return (
         <form
-            onSubmit={() => { }}
             className="form-agregar"
+
+            onSubmit={handleSubmit}
         >
             <input
                 className="input-agregar"
                 type="text"
-                placeholder="tarea nueva"
-                
+                placeholder="Tarea nueva"
+
                 value={value}
                 onChange={handleChange}
             />
