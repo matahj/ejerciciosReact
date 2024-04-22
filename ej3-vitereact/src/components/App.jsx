@@ -2,6 +2,7 @@ import { Component } from 'react'
 
 import Header from './Header'
 import Todolist from './Todolist'
+import Form from './Form'
 
 import '../styles/App.css'
 
@@ -38,6 +39,27 @@ class App extends Component {
     this.setState({ todos })
   }
 
+  handleAddTask = (texto) => {
+    const yaExiste = this.state.todos.find(
+      elem => elem.titulo === texto
+    )
+
+    if (yaExiste) {
+      alert('La tarea ya existe')
+      return
+    }
+
+    const listaTareas = [...this.state.todos]
+    listaTareas.concat([
+      { terminado: false, titulo: texto }
+    ])
+
+    this.setState({
+      todos: listaTareas
+    })
+
+  }
+
 
   render() {
 
@@ -56,6 +78,8 @@ class App extends Component {
             toggleFn={this.handleClickToggleDone}
             deleteFn={this.handleClickDelete}
           />
+
+          <Form addTaskFn={this.handleAddTask}/>
 
         </div>
       </div>
