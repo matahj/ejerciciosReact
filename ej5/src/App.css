@@ -1,0 +1,22 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+#boton{ 
+  background-color: rgb(107, 242, 58);
+}
+
+#uno{
+  background-color: rgb(101, 136, 240);
+}
+
+#dos{
+  background-color: rgb(254, 226, 185);
+}
+
+#tres{
+  background-color: rgb(173, 227, 227);
+}
